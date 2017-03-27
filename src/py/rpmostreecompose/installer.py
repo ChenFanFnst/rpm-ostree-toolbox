@@ -208,9 +208,6 @@ CMD ["/bin/sh", "/root/lorax.sh"]
             del child_env['http_proxy']
         run_sync(dr_cmd, env=child_env)
 
-        if not self.ostree_repo_is_remote:
-            trivhttp.stop()
-
         # We injected data into boot.iso, so it's now installer.iso
         lorax_output = self.image_workdir + '/lorax'
         lorax_images = lorax_output + '/images'
